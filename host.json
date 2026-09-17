@@ -1,0 +1,26 @@
+{
+  "version": "2.0",
+  "isDefaultHostConfig": true,
+  "managedDependency": {
+    "Enabled": true
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  },
+  "functionTimeout": "-1",
+  "concurrency": {
+    "dynamicConcurrencyEnabled": true
+  },
+  "extensions": {
+    "durableTask": {
+      "hubName": "otcs-graph-connector",
+      "maxConcurrentOrchestratorFunctions": 1,
+      "maxConcurrentActivityFunctions": 5,
+      "storageProvider": {
+        "type": "azureManaged",
+        "connectionStringName": "DURABLE_TASK_SCHEDULER_CONNECTION_STRING"
+      }
+    }
+  }
+}
